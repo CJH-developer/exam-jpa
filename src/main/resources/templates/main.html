@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<span>현재 사용자</span><br> 
+	<span th:text="${session.userid}"></span> 님 환영합니다.
+	<a th:href="@{/logout}">로그아웃</a><br>
+	
+	<table>
+		<tr>
+			<th>사용자 ID</th>
+			<th>사용자 명</th>
+			<th>사용자 이메일</th>
+			<th>사용자 연락처</th>
+			<th>사용 여부</th>
+			<th>상세 조회</th>
+			<th>삭제</th>
+		</tr>
+		<tr th:each="user:${userList}">
+			<td th:text="${user.userid}"></td>
+			<td th:text="${user.name}"></td>
+			<td th:text="${user.email}"></td>
+			<td th:text="${user.hand_phone}"></td>
+			<td th:text="${user.useyn}"></td>
+			<td><a th:href="@{@{|/detail/${user.userid}|}}">상세조회</a><td>
+			<td><a th:href="@{|/delete/${user.userid}|}">삭제</a><td>
+		</tr>
+	</table>
+</body>
+</html>

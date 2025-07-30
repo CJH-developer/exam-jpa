@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<span th:text="${session.userid}"></span> 님의 상세 정보
+	<form action="/updateForm" method="post">
+		<input type="hidden" th:value="${user.userid}" name="userid" >
+		이름 : <input type="text" th:value="${user.name}" name="name" >
+		비밀번호 : <input type="text" th:value="${user.password}" name="password" >
+		이메일  : <input type="text" th:value="${user.email}" name="email" >
+		휴대번호  : <input type="text" th:value="${user.hand_phone}" name="hand_phone" >
+		사용 여부 : <input type="text" th:value="${user.useyn}" name="useyn" >
+		<button type="submit">수정</button>
+	</form>
+</body>
+</html>
