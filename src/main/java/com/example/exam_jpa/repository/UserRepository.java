@@ -16,4 +16,10 @@ public interface UserRepository extends JpaRepository<UserEntity, String>{
 	 * 사용자 아이디 기준 SELECT
 	 */
 	Optional<UserEntity> findByuserid(String userid);
+
+	/**
+	 * @param userid
+	 * 사용자 DELETE
+	 */
+	void deleteByuserid(String userid);
 }

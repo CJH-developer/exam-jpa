@@ -4,7 +4,12 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+import javax.transaction.Transactional;
+
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+
 import com.example.exam_jpa.controller.UserController;
 import com.example.exam_jpa.dto.UserDTO;
 import com.example.exam_jpa.entity.UserEntity;
@@ -84,6 +89,17 @@ public class UserService {
 	public void update(UserDTO userDTO) {
 		userRepository.save(UserEntity.convertoUserEntity(userDTO));
 	}
+
+	/**
+	 * @param userid
+	 * 사용자 삭제
+	 */
+	@Transactional
+	public void delete(String userid) {
+		userRepository.deleteByuserid(userid);
+	}
+	
+	
 	
 	
 }

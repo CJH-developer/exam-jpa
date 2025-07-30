@@ -102,5 +102,19 @@ public class UserController {
 		return "main";
 	}
 	
+	/**
+	 * @param userid
+	 * @param model
+	 * @return
+	 * 사용자 삭제 
+	 */
+	@GetMapping("/delete/{userid}")
+	public String deleteForm(@PathVariable String userid, Model model) {
+		userService.delete(userid);
+		List<UserDTO> userList = userService.findAll();
+		model.addAttribute("userList", userList);
+		return "main";
+	}
+	
 	
 }
